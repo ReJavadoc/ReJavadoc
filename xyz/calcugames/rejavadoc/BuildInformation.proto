@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package xyz.calcugames.rejavadoc;
+
+message BuildInformation {
+  string from = 1;
+  int32 date = 2;
+}

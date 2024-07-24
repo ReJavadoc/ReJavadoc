@@ -18,8 +18,6 @@ build:
 
 docs:
 	@export GOBIN=$(shell pwd)/bin
-
-	@mkdir -p docs
 	@go install github.com/pseudomuto/protoc-gen-doc/cmd/protoc-gen-doc@latest
 	@$(PROTOC) --plugin=bin/protoc-gen-doc --doc_out=docs --doc_opt=html,index.html $(shell find . -name '*.proto')
 

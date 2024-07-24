@@ -25,6 +25,6 @@ jobs:
       with:
         go-version: 'stable'
     - name: Build Documentation
-      run: make docs
+      run: make -B docs
     - name: Deploy Documentation
       run: bash doc.sh ${GITHUB_SHA::7}

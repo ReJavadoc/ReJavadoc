@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package xyz.calcugames.rejavadoc;
-
-// An about message for the ReJavadoc tool.
-message About {
-  // The message to display.
-  string message = 1;
-}

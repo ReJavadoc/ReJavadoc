@@ -2,7 +2,14 @@ syntax = "proto3";
 
 package xyz.calcugames.rejavadoc;
 
+// The build information for the ReJavadoc tool.
 message BuildInformation {
+  // The source language of the tool.
   string from = 1;
+
+  // The date the tool was built.
   int32 date = 2;
+
+  // The version of the tool.
+  string version = 3;
 }

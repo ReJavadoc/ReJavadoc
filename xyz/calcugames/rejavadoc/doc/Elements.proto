@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package xyz.calcugames.rejavadoc.doc;
+
+import "xyz/calcugames/rejavadoc/doc/Types.proto";
+
+// Represents a class in Java.
+message Class {
+  // The type of the class.
+  Type type = 1;
+
+  // The visibility level of the class.
+  Visibility visibility = 2;
+
+  // The full name of the class. Includes the package.
+  string name = 3;
+
+  // The class that this class extends.
+  optional string extends = 4;
+
+  // The interfaces that this class implements.
+  repeated string implements = 5;
+
+  // The generic types of the class.
+  repeated Generic generics = 6;
+  
+  // The enclosing class of this class.
+  optional string enclosing = 7;
+
+  // The modifiers on the class.
+  repeated Modifier modifiers = 8;
+
+  // The annotations on the class.
+  repeated Annotation annotations = 9;
+
+  // The comment for the class.
+  optional string comment = 10;
+
+  // The fields in the class.
+  repeated Field fields = 11;
+
+  // The constructors in the class.
+  repeated Constructor constructors = 12;
+
+  // The methods in the class.
+  repeated Method methods = 13;
+
+  // The deprecated message for the class.
+  optional string deprecated = 14;
+}
+
+// Represents a field in Java.
+message Field {
+  // The type of the field.
+  string type = 1;
+
+  // The name of the field.
+  string name = 2;
+
+  // The visibility level of the field.
+  Visibility visibility = 3;
+
+  // The modifiers on the field.
+  repeated Modifier modifiers = 4;
+
+  // The annotations on the field.
+  repeated Annotation annotations = 5;
+  
+  // An optional value for the field. Used for constants.
+  optional string value = 6;
+
+  // The comment for the field.
+  string comment = 7;
+
+  // An optional deprecation message for the field.
+  optional string deprecated = 8;
+}
+
+// Represents a constructor in Java.
+message Constructor {
+  // The visibility level of the constructor.
+  Visibility visibility = 1;
+
+  // The modifiers on the constructor.
+  repeated Modifier modifiers = 2;
+
+  // The parameters of the constructor.
+  repeated Annotation annotations = 3;
+
+  // The comment for the constructor.
+  string comment = 4;
+
+  // An optional deprecation message for the constructor.
+  string deprecated = 5;
+  
+  // Whether the constructor is the primary constructor. Used for records.
+  bool primary = 6;
+}
+
+// Represents a method in Java.
+message Method {
+  // The name of the method.
+  string name = 1;
+
+  // The visibility level of the method.
+  Visibility visibility = 2;
+
+  // The modifiers on the method.
+  repeated Modifier modifiers = 3;
+
+  // The generic types of the method.
+  repeated Generic generics = 4;
+
+  // The parameters of the method.
+  repeated Parameter parameters = 5;
+
+  // The return type of the method.
+  string returnType = 6;
+
+  // The comment for the return type.
+  string returnComment = 7;
+
+  // The exceptions that the method throws, mapped from type to comment.
+  map<string, string> throws = 8;
+
+  // The annotations on the method.
+  repeated Annotation annotations = 9;
+
+  // The comment for the method.
+  string comment = 10;
+
+  // An optional deprecation message for the method.
+  string deprecated = 11;
+}

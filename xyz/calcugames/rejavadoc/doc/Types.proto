@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package xyz.calcugames.rejavadoc;
+
+// The type of a Java top-level element.
+enum Type {
+  // The element is a class.
+  CLASS = 0;
+
+  // The element is an interface.
+  INTERFACE = 1;
+
+  // The element is an enum.
+  ENUM = 2;
+
+  // The element is an annotation.
+  ANNOTATION = 3;
+
+  // The element is a record.
+  RECORD = 4;
+}
+
+// The visibility level of a Java element.
+enum Visibility { 
+  // The element is public.
+  PUBLIC = 0;
+
+  // The element is protected.
+  PROTECTED = 1;
+
+  // The element is package-private.
+  PACKAGE = 2;
+
+  // The element is private.
+  PRIVATE = 3;
+}
+
+// Represents an element modifier in Java.
+enum Modifier {
+  // The element is abstract.
+  ABSTRACT = 0;
+
+  // The element is final.
+  FINAL = 1;
+
+  // The element is static.
+  STATIC = 2;
+
+  // The element is synchronized.
+  SYNCHRONIZED = 3;
+
+  // The element is transient.
+  TRANSIENT = 4;
+
+  // The element is volatile.
+  VOLATILE = 5;
+
+  // The element is native.
+  NATIVE = 6;
+
+  // The element is strictfp.
+  STRICTFP = 7;
+}
+
+// Represents a Java parameter to any element.
+message Parameter {
+  // The type of the parameter.
+  string type = 1;
+
+  // The name of the parameter.
+  string name = 2;
+
+  // The comment for the parameter.
+  string comment = 3;
+
+  // The annotations on the parameter.
+  repeated Annotation annotations = 4;
+
+  // An optional value of the parameter. Used in annotations.
+  optional string value = 5;
+}
+
+// Represents a Java annotation.
+message Annotation {
+  // The name of the annotation.
+  string name = 1;
+
+  // The parameters of the annotation.
+  repeated Parameter params = 2;
+}
+
+// Represents a Java generic type.
+message Generic {
+  // The name of the generic type.
+  string name = 1;
+
+  // The bounds of the generic type.
+  repeated string extends = 2;
+
+  // The comment for the generic type.
+  repeated string super = 3;
+
+  // The annotations on the generic type.
+  string comment = 4;
+}
